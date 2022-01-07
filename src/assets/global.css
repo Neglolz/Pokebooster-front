@@ -1,0 +1,319 @@
+html {
+  scroll-behavior: smooth;
+}
+.title {
+  @apply text-3xl font-bold pb-4;
+}
+.subtitle {
+  @apply text-xl font-semibold pb-3;
+}
+.log-button {
+  @apply border-solid;
+  @apply border-2;
+  @apply py-1 px-3 mx-1 rounded;
+  height:fit-content;
+  width:fit-content;
+  cursor:pointer !important;
+}
+.log-input {
+  @apply border-solid;
+  @apply border-2;
+  @apply py-1 px-3 mx-1 rounded;
+  height:fit-content;
+  width:fit-content;
+}
+.green-button{
+  @apply border-green-500;
+}
+.red-button{
+  @apply border-red-500;
+}
+.log-multibutton {
+  @apply border-solid;
+  @apply border-2;
+  /*@apply py-1 px-3 rounded;*/
+  height:fit-content;
+  width:fit-content;
+  cursor:pointer !important;
+}
+
+.v-align{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(200px);
+  opacity: 0;
+}
+
+.projects {
+  margin-bottom: 50px;
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.projects-enter-active {
+  transform: scale(0.5) translatey(-80px);
+  opacity: 0;
+}
+.projects-leave-to, .projects-enter-from {
+  transform: translatey(30px);
+  opacity: 0;
+}
+.projects-leave-active {
+  position: absolute;
+  z-index: -1;
+}
+
+.log-multibutton > div > .popper{
+  @apply text-sm;
+  position: absolute;
+  inset: auto auto 0px 0px;
+  margin: 0px;
+  transform: translate3d(317px, -120px, 0px);
+
+  transition: background 250ms ease-in-out;
+  background: var(--popper-theme-background-color);
+  padding: var(--popper-theme-padding);
+  color: var(--popper-theme-text-color);
+  border-radius: var(--popper-theme-border-radius);
+  border-width: var(--popper-theme-border-width);
+  border-style: var(--popper-theme-border-style);
+  border-color: var(--popper-theme-border-color);
+  box-shadow: var(--popper-theme-box-shadow);
+  z-index: 50;
+  max-width:250px;
+
+  --popper-theme-background-color: #FFFFFF;
+  --popper-theme-background-color-hover: #FFFFFF;
+  --popper-theme-text-color: #333333;
+  --popper-theme-border-width: 1px;
+  --popper-theme-border-style: solid;
+  --popper-theme-border-color: #dadada;
+  --popper-theme-border-radius: 6px;
+  --popper-theme-padding: 5px 15px;
+  --popper-theme-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, .25);
+}
+
+.popper{
+  position: absolute;
+  inset: auto auto 0px 0px;
+  margin: 0px;
+  transform: translate3d(317px, -120px, 0px);
+
+  transition: background 250ms ease-in-out;
+  background: var(--popper-theme-background-color);
+  padding: var(--popper-theme-padding);
+  color: var(--popper-theme-text-color);
+  border-radius: var(--popper-theme-border-radius);
+  border-width: var(--popper-theme-border-width);
+  border-style: var(--popper-theme-border-style);
+  border-color: var(--popper-theme-border-color);
+  box-shadow: var(--popper-theme-box-shadow);
+  z-index: 50;
+  max-width:250px;
+
+  --popper-theme-background-color: #ffffff;
+  --popper-theme-background-color-hover: #ffffff;
+  --popper-theme-text-color: #333333;
+  --popper-theme-border-width: 1px;
+  --popper-theme-border-style: solid;
+  --popper-theme-border-color: #dadada;
+  --popper-theme-border-radius: 6px;
+  --popper-theme-padding: 20px;
+  --popper-theme-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, .25);
+}
+/*POKEMON CARD BACKGROUND IMAGE*/
+.Flying, .Dark, .Rock, .Ghost, .Fire, .Grass, .Electric, .Water, .Dragon, .Bug, .Normal, .Ground, .Ice, .Steel, .Fairy, .Psychic, .Fighting, .Poison {
+  position: relative;
+}
+.Dark:before {
+  background-image: url("./../assets/card-background/dark.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Rock:before {
+  background-image: url("./../assets/card-background/mountain.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Ghost:before {
+  background-image: url("./../assets/card-background/forest.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Flying:before {
+  background-image: url("./../assets/card-background/flight.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Fire:before {
+  background-image: url("./../assets/card-background/fire.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Grass:before {
+  background-image: url("./../assets/card-background/grass.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Electric:before {
+  background-image: url("./../assets/card-background/electric.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Water:before {
+  background-image: url("./../assets/card-background/water.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Dragon:before {
+  background-image: url("./../assets/card-background/dragon.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Bug:before {
+  background-image: url("./../assets/card-background/bug.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Normal:before {
+  background-image: url("./../assets/card-background/normal.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Ground:before {
+  background-image: url("./../assets/card-background/ground.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Ice:before {
+  background-image: url("./../assets/card-background/ice.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Steel:before {
+  background-image: url("./../assets/card-background/steel.png");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Fairy:before {
+  background-image: url("./../assets/card-background/fairy2.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Psychic:before {
+  background-image: url("./../assets/card-background/psychic.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Fighting:before {
+  background-image: url("./../assets/card-background/fighting.png");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
+.Poison:before {
+  background-image: url("./../assets/card-background/poison.jpg");
+  background-position: center center;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: blur(0.7px);
+}
