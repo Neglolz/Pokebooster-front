@@ -1,5 +1,7 @@
 # pokemon-vue3
 
+Port must be 8080 for google login
+
 ## Project setup
 ```
 npm install
