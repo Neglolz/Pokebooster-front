@@ -33,7 +33,7 @@
       >
         <div
           :class="[
-            `bg-${card.typeList[0].toLowerCase()}`,
+            `safe bg-${card.typeList[0].toLowerCase()}`,
             card.isShiny ? 'pokemon-card-shiny' : 'pokemon-card',
             card.isShiny
               ? `hover:shadow-rshiny`

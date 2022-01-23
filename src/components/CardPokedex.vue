@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      `bg-${card.typeList[0].toLowerCase()} hover:shadow-r${card.rarity}`,
+      `safe bg-${card.typeList[0].toLowerCase()} hover:shadow-r${card.rarity}`,
       {
         selectable: isSelectable && !isSelected,
       },
