@@ -51,46 +51,46 @@
           <br />
         </div>
       </div>
-      <div class="grid">
-        <h3 class="subtitle">Most uniques shinies pokemon :</h3>
-        <div
-          v-for="(user, index) in sortedData('shiny')"
-          :key="index"
-          class="text-left"
-        >
-          <span class="first" v-if="index === 0">
-            <img
-              src="@/assets/icons/laddergold.png"
-              alt=""
-              class="float-left mr-2"
-              height="25"
-              width="25"
-            />{{ index + 1 }}. {{ user.name }} : {{ user.uniquesShinyAmount }}
-          </span>
-          <span class="second" v-if="index === 1">
-            <img
-              src="@/assets/icons/ladderSilver.png"
-              alt=""
-              class="float-left mr-2"
-              height="25"
-              width="25"
-            />{{ index + 1 }}. {{ user.name }} : {{ user.uniquesShinyAmount }}
-          </span>
-          <span class="third" v-if="index === 2">
-            <img
-              src="@/assets/icons/ladderBronze.png"
-              alt=""
-              class="float-left mr-2"
-              height="25"
-              width="25"
-            />{{ index + 1 }}. {{ user.name }} : {{ user.uniquesShinyAmount }}
-          </span>
-          <span v-if="index > 2">
-            {{ index + 1 }}. {{ user.name }} : {{ user.uniquesShinyAmount }}
-          </span>
-          <br />
-        </div>
-      </div>
+      <!--      <div class="grid">-->
+      <!--        <h3 class="subtitle">Most uniques shinies pokemon :</h3>-->
+      <!--        &lt;!&ndash;        <div&ndash;&gt;-->
+      <!--        &lt;!&ndash;          v-for="(user, index) in sortedData('shiny')"&ndash;&gt;-->
+      <!--        &lt;!&ndash;          :key="index"&ndash;&gt;-->
+      <!--        &lt;!&ndash;          class="text-left"&ndash;&gt;-->
+      <!--        &lt;!&ndash;        >&ndash;&gt;-->
+      <!--        &lt;!&ndash;          <span class="first" v-if="index === 0">&ndash;&gt;-->
+      <!--        &lt;!&ndash;            <img&ndash;&gt;-->
+      <!--        &lt;!&ndash;              src="@/assets/icons/laddergold.png"&ndash;&gt;-->
+      <!--        &lt;!&ndash;              alt=""&ndash;&gt;-->
+      <!--        &lt;!&ndash;              class="float-left mr-2"&ndash;&gt;-->
+      <!--        &lt;!&ndash;              height="25"&ndash;&gt;-->
+      <!--        &lt;!&ndash;              width="25"&ndash;&gt;-->
+      <!--        &lt;!&ndash;            />{{ index + 1 }}. {{ user.name }} : {{ user.uniquesShinyAmount }}&ndash;&gt;-->
+      <!--        &lt;!&ndash;          </span>&ndash;&gt;-->
+      <!--        &lt;!&ndash;          <span class="second" v-if="index === 1">&ndash;&gt;-->
+      <!--        &lt;!&ndash;            <img&ndash;&gt;-->
+      <!--        &lt;!&ndash;              src="@/assets/icons/ladderSilver.png"&ndash;&gt;-->
+      <!--        &lt;!&ndash;              alt=""&ndash;&gt;-->
+      <!--        &lt;!&ndash;              class="float-left mr-2"&ndash;&gt;-->
+      <!--        &lt;!&ndash;              height="25"&ndash;&gt;-->
+      <!--        &lt;!&ndash;              width="25"&ndash;&gt;-->
+      <!--        &lt;!&ndash;            />{{ index + 1 }}. {{ user.name }} : {{ user.uniquesShinyAmount }}&ndash;&gt;-->
+      <!--        &lt;!&ndash;          </span>&ndash;&gt;-->
+      <!--        &lt;!&ndash;          <span class="third" v-if="index === 2">&ndash;&gt;-->
+      <!--        &lt;!&ndash;            <img&ndash;&gt;-->
+      <!--        &lt;!&ndash;              src="@/assets/icons/ladderBronze.png"&ndash;&gt;-->
+      <!--        &lt;!&ndash;              alt=""&ndash;&gt;-->
+      <!--        &lt;!&ndash;              class="float-left mr-2"&ndash;&gt;-->
+      <!--        &lt;!&ndash;              height="25"&ndash;&gt;-->
+      <!--        &lt;!&ndash;              width="25"&ndash;&gt;-->
+      <!--        &lt;!&ndash;            />{{ index + 1 }}. {{ user.name }} : {{ user.uniquesShinyAmount }}&ndash;&gt;-->
+      <!--        &lt;!&ndash;          </span>&ndash;&gt;-->
+      <!--        &lt;!&ndash;          <span v-if="index > 2">&ndash;&gt;-->
+      <!--        &lt;!&ndash;            {{ index + 1 }}. {{ user.name }} : {{ user.uniquesShinyAmount }}&ndash;&gt;-->
+      <!--        &lt;!&ndash;          </span>&ndash;&gt;-->
+      <!--        &lt;!&ndash;          <br />&ndash;&gt;-->
+      <!--        &lt;!&ndash;        </div>&ndash;&gt;-->
+      <!--      </div>-->
     </div>
   </div>
 </template>
@@ -110,9 +110,10 @@ const getTopUniques = () => {
     uniquesAmount: number;
     uniquesShinyAmount: number;
   }[] = [];
-
+  console.log("a");
   users.value.forEach((u: User) => {
     if (!u.pokemons) return;
+    console.log("b");
     const uniquesAmount = u.pokemons
       .map((e: PokemonCard) => e["id"])
       .map(
@@ -141,7 +142,7 @@ const getTopUniques = () => {
 
 const sortedData = (sortValue: string) => {
   if (!topUniques.value) return;
-  return topUniques.value.sort((a: number, b: number) => {
+  return topUniques.value.sort((a: any, b: any) => {
     switch (sortValue) {
       case "unique":
         return a.uniquesAmount < b.uniquesAmount ? 1 : -1;
