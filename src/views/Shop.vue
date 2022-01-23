@@ -81,9 +81,7 @@ const checkMoney = (money: number, price: number) => {
 };
 
 const buyItem = async (Item: Item, index: number) => {
-  // console.log(divs.value[index].value);
   const boosterAmountToBuy = parseInt(divs.value[index].value) || 1;
-  console.log(boosterAmountToBuy);
 
   let ownedInventory = await getOwnedInventory(store.state.user);
 

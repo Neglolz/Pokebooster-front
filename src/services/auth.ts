@@ -28,7 +28,6 @@ export async function saveUser(identity: User) {
     // + any requestOptions
   });
   await store.dispatch("setUser", identity);
-  console.log("User have been saved");
 }
 export async function getOwnedPokemons(identity: User): Promise<PokemonCard[]> {
   const res = await fetch(
@@ -47,7 +46,6 @@ export async function getOwnedPokemons(identity: User): Promise<PokemonCard[]> {
   return data.pokemons;
 }
 export async function getOwnedInventory(identity: User): Promise<Inventory> {
-  console.log("getOwnedInventory");
   const res = await fetch(
     `https://${process.env.VUE_APP_ALGOLIA_APP_ID}-dsn.algolia.net/1/indexes/users/${identity.objectID}`,
     { headers }
@@ -64,7 +62,6 @@ export async function getOwnedInventory(identity: User): Promise<Inventory> {
   return data.inventory;
 }
 export async function getLastRewardDate(identity: User) {
-  console.log("getLastRewardDate");
   const res = await fetch(
     `https://${process.env.VUE_APP_ALGOLIA_APP_ID}-dsn.algolia.net/1/indexes/users/${identity.objectID}`,
     { headers }
@@ -90,7 +87,6 @@ export async function getLastRewardDate(identity: User) {
   return store.state.user.lastRewardDate;
 }
 export async function getUser(identity: User): Promise<User> {
-  console.log("getUser");
   const res = await fetch(
     `https://${process.env.VUE_APP_ALGOLIA_APP_ID}-dsn.algolia.net/1/indexes/users/${identity.objectID}`,
     { headers }
@@ -111,7 +107,6 @@ export async function getAllUsers(): Promise<User[]> {
     { headers }
   );
   const data = await res.json();
-  console.log("GET ALL USERS", data);
 
   return data.hits;
 }

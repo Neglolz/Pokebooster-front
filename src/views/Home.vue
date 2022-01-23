@@ -4,10 +4,16 @@
       <br /><br />
       <h1 class="title v-align">
         <img src="@/assets/icons/zubat.png" alt="" class="mr-5" />
-        Pokebooster
+        Pokebooster ALPHA VERSION
         <img src="@/assets/icons/ronflex.png" alt="" class="ml-5" />
       </h1>
-      <br /><br />
+      <i
+        >This is an early temporary version. Be ready to experience some bugs,
+        and maybe some resets of your collection.</i
+      >
+      <br />
+      <br />
+      <br />
       <p class="mx-40">
         Pokebooster is a game were you open booster to complete you collection
         of pokemons. <br />
@@ -138,6 +144,7 @@
             Complete you badges by fighting in arenas
             <img src="@/assets/icons/redglove.png" alt="" />
           </li>
+          <li class="inline-flex v-align">Multi language support</li>
         </ul>
       </div>
     </div>

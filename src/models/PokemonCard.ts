@@ -135,134 +135,131 @@ export default class PokemonCard {
     return rarityRolled;
   }
 
-  async getPokemonData(pokemonRolledId: number): Promise<MongoPokemon> {
-    // const data = {} as ApiCard;
-    let data = {} as MongoPokemon;
-    try {
-      //get data from mongo api
-      data = await getPokemonById(pokemonRolledId);
-      console.log(data);
+  async getPokemonData(pokemonRolledId: number): Promise<ApiCard> {
+    let data = {} as ApiCard;
+    // let data = {} as MongoPokemon;
+    // try {
+    //get data from mongo api
+    // data = await getPokemonById(pokemonRolledId); // LOCAL API
 
-      //get overall data
-      // const apiData = await getPokemon(pokemonRolledId);
-      //
-      // //get specified infos
-      // const apiAdditionalData = await getPokemonInfos(pokemonRolledId);
-      //
-      // //get data from const local data
-      // const pokemonFromData = await getPokemonFromData(pokemonRolledId);
-      //
-      // //next evolution data
-      // const apiNextEvolutionName: string = await getEvolutionName(
-      //   apiAdditionalData.evolution_chain?.url || "",
-      //   apiAdditionalData.name || "",
-      //   apiAdditionalData?.id || 0
-      // );
-      //
-      // let nextEvolutionData: NextEvolution;
-      // if (apiNextEvolutionName) {
-      //   const apiNextEvolutionData = await getEvolutionData(
-      //     apiNextEvolutionName
-      //   );
-      //   if (this.isShiny) {
-      //     nextEvolutionData = {
-      //       id: apiNextEvolutionData.id || 0,
-      //       image: apiNextEvolutionData.sprites?.front_shiny || "",
-      //     };
-      //   } else {
-      //     nextEvolutionData = {
-      //       id: apiNextEvolutionData.id || 0,
-      //       image: apiNextEvolutionData.sprites?.front_default || "",
-      //     };
-      //   }
-      // } else {
-      //   nextEvolutionData = {
-      //     id: 0,
-      //     image: "",
-      //   };
-      // }
-      //
-      // data = {
-      //   apiData,
-      //   apiAdditionalData,
-      //   pokemonFromData,
-      //   nextEvolutionData,
-      // };
-    } catch (e) {
-      console.error("error", e);
+    // get overall data
+    const apiData = await getPokemon(pokemonRolledId);
+
+    //get specified infos
+    const apiAdditionalData = await getPokemonInfos(pokemonRolledId);
+
+    //get data from const local data
+    const pokemonFromData = await getPokemonFromData(pokemonRolledId);
+
+    //next evolution data
+    const apiNextEvolutionName: string = await getEvolutionName(
+      apiAdditionalData.evolution_chain?.url || "",
+      apiAdditionalData.name || "",
+      apiAdditionalData?.id || 0
+    );
+
+    let nextEvolutionData: NextEvolution;
+    if (apiNextEvolutionName) {
+      const apiNextEvolutionData = await getEvolutionData(apiNextEvolutionName);
+      if (this.isShiny) {
+        nextEvolutionData = {
+          id: apiNextEvolutionData.id || 0,
+          image: apiNextEvolutionData.sprites?.front_shiny || "",
+        };
+      } else {
+        nextEvolutionData = {
+          id: apiNextEvolutionData.id || 0,
+          image: apiNextEvolutionData.sprites?.front_default || "",
+        };
+      }
+    } else {
+      nextEvolutionData = {
+        id: 0,
+        image: "",
+      };
     }
+
+    data = {
+      apiData,
+      apiAdditionalData,
+      pokemonFromData,
+      nextEvolutionData,
+    };
+    // } catch (e) {
+    //   console.error("error", e);
+    // }
     return data;
   }
 
   setPokemonCard(data: any): void {
-    console.log("data", data);
     this.uuid = uuidv4();
-    this.id = data.pokedexId;
-    this.name = data.name;
-    this.typeList = data.typeList;
-    this.rarity = data.rarity;
-    this.height = data.height;
-    this.weight = data.weight;
+    // this.id = data.pokedexId; // LOCAL API
+    // this.name = data.name; // LOCAL API
+    // this.typeList = data.typeList; // LOCAL API
+    // this.rarity = data.rarity; // LOCAL API
+    // this.height = data.height; // LOCAL API
+    // this.weight = data.weight; // LOCAL API
 
-    // this.id = data.pokemonFromData.id;
-    // this.name = data.pokemonFromData.name;
-    // this.typeList = data.pokemonFromData.typeList;
-    // this.rarity = data.pokemonFromData.rarity;
-    // this.height = data.apiData.height || 0;
-    // this.weight = data.apiData.weight || 0;
+    this.id = data.pokemonFromData.id;
+    this.name = data.pokemonFromData.name;
+    this.typeList = data.pokemonFromData.typeList;
+    this.rarity = data.pokemonFromData.rarity;
+    this.height = data.apiData.height || 0;
+    this.weight = data.apiData.weight || 0;
 
     if (this.isShiny) {
-      // this.image =
-      //   data.apiData.sprites?.other?.home?.front_shiny ||
-      //   data.apiData.sprites?.other["official-artwork"].front_default ||
-      //   "";
-      this.image = data.imageShiny;
+      this.image =
+        data.apiData.sprites?.other?.home?.front_shiny ||
+        data.apiData.sprites?.other["official-artwork"].front_default ||
+        "";
+      // this.image = data.imageShiny; // LOCAL API
     } else {
-      this.image = data.image;
-      // this.image =
-      //   data.apiData.sprites?.other?.dream_world?.front_default ||
-      //   data.apiData.sprites?.other["official-artwork"].front_default ||
-      //   "";
+      // this.image = data.image; // LOCAL API
+      this.image =
+        data.apiData.sprites?.other?.dream_world?.front_default ||
+        data.apiData.sprites?.other["official-artwork"].front_default ||
+        "";
     }
 
-    // this.description = data.apiAdditionalData.flavor_text_entries.find(
-    //   (text: FlavorTextEntries) => text.language.name === "en"
-    // ).flavor_text;
-    this.description = data.description;
-    // this.species = data.apiAdditionalData.genera[7].genus;
-    this.species = data.species;
+    this.description = data.apiAdditionalData.flavor_text_entries.find(
+      (text: FlavorTextEntries) => text.language.name === "en"
+    ).flavor_text;
+    // this.description = data.description; // LOCAL API
 
-    // const stats: Stat = {
-    //   atq:
-    //     Math.round(
-    //       (data.apiData.stats.find((s: Stats) => s.stat.name === "attack")
-    //         .base_stat +
-    //         data.apiData.stats.find(
-    //           (s: Stats) => s.stat.name === "special-attack"
-    //         ).base_stat) /
-    //         2
-    //     ) || 0,
-    //   def:
-    //     Math.round(
-    //       (data.apiData.stats.find((s: Stats) => s.stat.name === "defense")
-    //         .base_stat +
-    //         data.apiData.stats.find(
-    //           (s: Stats) => s.stat.name === "special-defense"
-    //         ).base_stat) /
-    //         2
-    //     ) || 0,
-    //   hp:
-    //     data.apiData.stats.find((s: Stats) => s.stat.name === "hp").base_stat ||
-    //     0,
-    //   spd:
-    //     data.apiData.stats.find((s: Stats) => s.stat.name === "speed")
-    //       .base_stat || 0,
-    // };
-    // this.stats = stats;
-    this.stats = data.stats;
+    this.species = data.apiAdditionalData.genera[7].genus;
+    // this.species = data.species; // LOCAL API
 
-    // this.nextEvolution = data.nextEvolutionData;
-    this.nextEvolution = data.nextEvolution;
+    const stats: Stat = {
+      atq:
+        Math.round(
+          (data.apiData.stats.find((s: Stats) => s.stat.name === "attack")
+            .base_stat +
+            data.apiData.stats.find(
+              (s: Stats) => s.stat.name === "special-attack"
+            ).base_stat) /
+            2
+        ) || 0,
+      def:
+        Math.round(
+          (data.apiData.stats.find((s: Stats) => s.stat.name === "defense")
+            .base_stat +
+            data.apiData.stats.find(
+              (s: Stats) => s.stat.name === "special-defense"
+            ).base_stat) /
+            2
+        ) || 0,
+      hp:
+        data.apiData.stats.find((s: Stats) => s.stat.name === "hp").base_stat ||
+        0,
+      spd:
+        data.apiData.stats.find((s: Stats) => s.stat.name === "speed")
+          .base_stat || 0,
+    };
+    this.stats = stats;
+    // this.stats = data.stats; // LOCAL API
+
+    this.nextEvolution = data.nextEvolutionData;
+    // this.nextEvolution = data.nextEvolution; // LOCAL API
   }
 
   rollPokemon(rarityRolled: string): number {

@@ -168,7 +168,6 @@ const getEvolutionReward = async (cardsReleased: PokemonCard[]) => {
 
         //creation de la carte à ajouter au pokedex
         for (let i = 0; i < cardsAmount; i++) {
-          console.log("i", i);
           const evolutionCard: PokemonCard = new PokemonCard();
           await evolutionCard.init(false, {
             cardId: cardToEvolution?.nextEvolution.id,

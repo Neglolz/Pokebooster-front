@@ -142,7 +142,6 @@ const getReward = async () => {
       inventory: ownedInventory,
       lastRewardDate: new Date(),
     };
-    console.log("identity.lastRewardDate", identity.lastRewardDate);
     if (!identity.objectID) return;
     await saveUser(identity);
     //

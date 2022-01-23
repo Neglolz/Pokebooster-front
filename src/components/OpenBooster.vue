@@ -80,12 +80,10 @@ const rollPokemon = async () => {
   hasRolled.value = false;
   loading.value = true;
   try {
-    console.log(options);
     await booster.init(options);
 
     hasRolled.value = true;
     loading.value = false;
-    console.log("BOOOoOOOOOOOSTER", booster);
     await savePokemon();
     await removeBoosterFromLocalInventory();
     window.location = "#booster";

@@ -65,7 +65,6 @@ export default createStore({
       if (
         !state.user.inventory.boosters.some((b) => b.id === boosterTyped.id)
       ) {
-        console.log("salut");
         // if booster is non existent create it
         state.user.inventory.boosters.push(boosterTyped);
       } else {
@@ -100,7 +99,6 @@ export default createStore({
       }
     },
     signOut({ commit, state }, gAuth: any): void {
-      console.log("sigout");
       if (!gAuth) return;
       commit("SET_USER");
       Cookie.remove("idToken");
