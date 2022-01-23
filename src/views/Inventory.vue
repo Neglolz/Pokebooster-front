@@ -15,7 +15,7 @@
     <button @click="getReward()" class="log-button mb-10">Get Reward</button>
     <br />
     lastReward : {{ new Date(store.state.user.lastRewardDate) }} <br />
-    <br />
+
     <!--    now : {{ new Date() }} <br />-->
     <!--    isRewardReady: {{ // isRewardReady(store.state.user.lastRewardDate) }}<br />-->
     <!--    time since last reward: {{ timeSinceLastReward }} <br />-->
@@ -23,6 +23,10 @@
   <div v-else>
     <h1 class="title">Next Reward : Not ready</h1>
     lastReward : {{ new Date(store.state.user.lastRewardDate) }} <br />
+    <br />
+    {{ isRewardReady(store.state.user.lastRewardDate) }}
+    <br />
+    {{ store.state.user.lastRewardDate }}
   </div>
   <div
     class="container mx-auto justify-around px-20 py-20"
@@ -112,9 +116,15 @@ const boosters = computed(() => {
 });
 
 const isRewardReady = (lastRewardDate: number) => {
-  const now = Date.parse(new Date().toDateString());
+  // const now = Date.parse(new Date().toDateString());
+  const now: any = new Date();
 
-  const last: number = Date.parse(new Date(lastRewardDate).toDateString());
+  // const last: number = Date.parse(new Date(lastRewardDate).toDateString());
+  const last: any = new Date(lastRewardDate);
+  console.log("lastRewardDate", lastRewardDate);
+  console.log("now", now);
+  console.log("last", last);
+  console.log(now - last);
   return now - last >= 7199999;
   // return now - last >= 999;
 };

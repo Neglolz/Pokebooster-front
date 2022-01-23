@@ -15,7 +15,7 @@
       <br />
       <br />
       <p class="mx-40">
-        Pokebooster is a game were you open booster to complete you collection
+        Pokebooster is a game were you open booster to complete your collection
         of pokemons. <br />
         Login now to start playing for free !
       </p>
@@ -141,7 +141,7 @@
             Buy and sell card on the market
           </li>
           <li class="inline-flex v-align">
-            Complete you badges by fighting in arenas
+            Complete your badges by fighting in arenas
             <img src="@/assets/icons/redglove.png" alt="" />
           </li>
           <li class="inline-flex v-align">Multi language support</li>
