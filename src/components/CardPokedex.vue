@@ -34,8 +34,7 @@
       {{ card.species.substring(0, card.species.length - 8) }} -
       {{ card.height / 10 }} m / {{ card.weight / 10 }} kg
     </div>
-
-    <div class="evolution" v-if="card.nextEvolution.id">
+    <div class="evolution" v-if="card.nextEvolution.id > 0">
       <span>
         <img
           :class="[card.isShiny ? 'evolution-image-shiny' : 'evolution-image']"

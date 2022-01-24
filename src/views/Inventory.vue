@@ -23,10 +23,6 @@
   <div v-else>
     <h1 class="title">Next Reward : Not ready</h1>
     lastReward : {{ new Date(store.state.user.lastRewardDate) }} <br />
-    <br />
-    {{ isRewardReady(store.state.user.lastRewardDate) }}
-    <br />
-    {{ store.state.user.lastRewardDate }}
   </div>
   <div
     class="container mx-auto justify-around px-20 py-20"
@@ -121,10 +117,6 @@ const isRewardReady = (lastRewardDate: number) => {
 
   // const last: number = Date.parse(new Date(lastRewardDate).toDateString());
   const last: any = new Date(lastRewardDate);
-  console.log("lastRewardDate", lastRewardDate);
-  console.log("now", now);
-  console.log("last", last);
-  console.log(now - last);
   return now - last >= 7199999;
   // return now - last >= 999;
 };

@@ -104,7 +104,7 @@ const buyItem = async (Item: Item, index: number) => {
   };
   if (!identity.objectID) return;
   await saveUser(identity);
-  toaster.success(`${boosterAmountToBuy} ${Item.name} bought !`);
+  toaster.success(`${boosterAmountToBuy} ${Item.name} booster bought !`);
 };
 </script>
 

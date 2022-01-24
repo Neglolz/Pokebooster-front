@@ -81,7 +81,8 @@
             </span>
             <!--            </div>-->
           </div>
-          <div class="evolution" v-if="card.nextEvolution">
+
+          <div class="evolution" v-if="card.nextEvolution.id > 0">
             <span>
               <img
                 :class="[

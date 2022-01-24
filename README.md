@@ -30,7 +30,13 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-### Mise en prod heroku (heroku-cli)
+### Prod heroku (heroku-cli)
 ```
 git push heroku master
 ```
+
+### Test local production 
+```
+serve -s dist   
+```
+
