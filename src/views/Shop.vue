@@ -72,7 +72,7 @@ onBeforeUpdate(() => {
 });
 
 const checkMoney = (money: number, price: number) => {
-  if (money - price > 0) return true;
+  if (money - price >= 0) return true;
   if (money - price < 0) {
     //add toaster error
     toaster.error("You don't have enough coins to buy this");
